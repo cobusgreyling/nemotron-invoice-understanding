@@ -42,7 +42,19 @@ That last point is important. **Nemotron is ideal if you want to run offline to 
 
 ### The Practical Example
 
-I loaded four invoice images from a HuggingFace dataset and ran two queries against the Nemotron model.
+I loaded four invoice images from a [HuggingFace dataset](https://huggingface.co/datasets/katanaml-org/invoices-donut-data-v1) and ran two queries against the Nemotron model.
+
+Here are the four invoices the model was given — raw images, no pre-processing, no OCR:
+
+| Invoice 1 | Invoice 2 |
+|:-:|:-:|
+| ![Invoice 1](invoice_1.png) | ![Invoice 2](invoice_2.png) |
+
+| Invoice 3 | Invoice 4 |
+|:-:|:-:|
+| ![Invoice 3](invoice_3.png) | ![Invoice 4](invoice_4.png) |
+
+Each invoice has a different seller, different line items, different dates, and different totals. The model needs to read and reason about all four simultaneously.
 
 #### Query 1 — Sum Up All The Totals Across The Receipts
 
@@ -75,7 +87,7 @@ $5,773.27 + $7,052.49 = $12,825.76
 
 **Answer: $12,825.76**
 
-What I find remarkable here is that the model extracted financial figures from raw invoice images — not OCR, not structured data — and performed multi-step arithmetic with reasoning visible at every step. This is auditable AI.
+What I find remarkable here is that the model extracted financial figures from these raw invoice images — not OCR, not structured data — and performed multi-step arithmetic with reasoning visible at every step. Look at [invoice_1.png](invoice_1.png) for example — the model correctly identified the $3,490.29 gross worth from a dense, multi-line document. This is auditable AI.
 
 ---
 
