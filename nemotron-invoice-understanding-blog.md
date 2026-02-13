@@ -14,6 +14,13 @@ I think what excites me most about this example is not the technology itself, bu
 
 Most conversations about AI focus on chatbots, code generation, or content creation. But the **deep research capabilities of AI** have a far more transformative application: **internal audits and fraud detection** within companies.
 
+The data already tells the story. Look at what is happening to customer support hiring:
+
+![Customer Support Hiring Plunges](customer_support_hiring.webp)
+*Source: Pave Data Lab via A16Z. Customer support hiring as a percentage of new hires has dropped from 8.3% in Q4 2023 to 2.88% in Q3 2025.*
+
+This is not a small dip — it is a cliff. AI is already replacing operational roles at scale. Customer support is just the most visible example. **The same pattern is coming for manual document processing, invoice review, and financial auditing.** The question is not whether AI will handle these tasks, but which models and architectures will do it best.
+
 Consider what happens today when a finance team needs to audit invoices:
 
 - Manual review of thousands of documents
@@ -23,6 +30,19 @@ Consider what happens today when a finance team needs to audit invoices:
 A Vision Language Model like Nemotron changes this fundamentally. You feed it invoice images — not structured data, not OCR output, but the **raw document images** — and it reasons about them.
 
 > **The model reads the invoices like a human would, but at scale and with reasoning that can be toggled on and off.**
+
+---
+
+### The Enterprise AI Landscape
+
+This is not happening in isolation. Every major AI company is investing heavily in financial services and enterprise operations. Look at the Anthropic strategy map:
+
+![Anthropic Strategy Map](anthropic_strategy_map.png)
+*Source: CB Insights. Anthropic's partnerships and investments span Financial Services & Insurance (Goldman Sachs, Travelers, Allianz, S&P Global), Professional Services (Accenture, Deloitte, KPMG), and Government.*
+
+Goldman Sachs. Allianz. S&P Global. Deloitte. KPMG. These are not companies experimenting with chatbots — they are integrating AI into core financial operations. **Invoice processing, claims review, compliance auditing — this is where the real value is being created.**
+
+NVIDIA sits in the same ecosystem (visible under AI Infrastructure & Computing in the map above), and Nemotron is their answer for document intelligence that can run on-premise with full data sovereignty.
 
 ---
 
@@ -118,6 +138,10 @@ This is exactly the kind of reasoning you need in a financial audit. The model d
 
 ### The Code
 
+![Terminal](terminal_icon.png)
+
+The full demo runs from a single Python script. It downloads invoices from HuggingFace, encodes them as base64 images, and sends them to the Nemotron model via NVIDIA's OpenAI-compatible API.
+
 ```python
 from openai import OpenAI
 from PIL import Image
@@ -181,14 +205,14 @@ call_nemotron(image_urls, "Here are 4 invoices flagged as potential duplicates �
 
 Three things stand out to me:
 
-**1. Deep research capabilities applied to internal operations.** We talk a lot about AI for customer-facing use cases. But the deep reasoning capabilities of models like Nemotron are arguably more valuable for **internal audit, compliance, and fraud detection**. A model that can read, reason about, and compare thousands of invoices is a force multiplier for finance teams.
+**1. Deep research capabilities applied to internal operations.** We talk a lot about AI for customer-facing use cases. But the deep reasoning capabilities of models like Nemotron are arguably more valuable for **internal audit, compliance, and fraud detection**. A model that can read, reason about, and compare thousands of invoices is a force multiplier for finance teams. The A16Z data on customer support hiring is a leading indicator — the same displacement is coming for manual document review.
 
-**2. Reasoning transparency matters.** The `/think` mode shows the model's chain of thought — every step of the arithmetic, every comparison made. This is not a black box. For audit and compliance, this **inspectability** is essential.
+**2. Reasoning transparency matters.** The `/think` mode shows the model's chain of thought — every step of the arithmetic, every comparison made. This is not a black box. For audit and compliance, this **inspectability** is essential. When Goldman Sachs or Deloitte integrates AI into financial workflows, they need to show regulators how the model arrived at its conclusions. Nemotron's reasoning toggle makes this possible.
 
-**3. Data sovereignty is achievable.** Nemotron is an open model. You can run it on NVIDIA hardware on-premise, air-gapped from the internet. For companies in regulated industries — finance, healthcare, government — this means you get the capabilities of a frontier Vision Language Model **without your data ever leaving your infrastructure**.
+**3. Data sovereignty is achievable.** Nemotron is an open model. You can run it on NVIDIA hardware on-premise, air-gapped from the internet. For companies in regulated industries — finance, healthcare, government — this means you get the capabilities of a frontier Vision Language Model **without your data ever leaving your infrastructure**. This is why NVIDIA's approach matters: the model runs where your data lives.
 
 > **Nemotron is not just a model. It is NVIDIA's toolkit for making AI practical on their hardware — and invoice understanding is one of many applications where it shines.**
 
-I think we are going to see a lot more of this pattern: **frontier AI capabilities applied to mundane but critical business processes** like invoice auditing, claims processing, and compliance checks. The models are ready. The use cases are waiting.
+I think we are going to see a lot more of this pattern: **frontier AI capabilities applied to mundane but critical business processes** like invoice auditing, claims processing, and compliance checks. The hiring data shows the shift is already happening. The enterprise partnerships show the investment is already flowing. The models are ready. The use cases are waiting.
 
-⭐️ Follow me on [LinkedIn](https://www.linkedin.com/in/cobusgreyling) for more on Agentic AI, LLMs and NLP.
+Follow me on [LinkedIn](https://www.linkedin.com/in/cobusgreyling) for more on Agentic AI, LLMs and NLP.
