@@ -161,29 +161,11 @@ The agent receives this policy alongside instructions to review each invoice, ex
 
 ---
 
-### The Pattern In Context
-
-This is not an academic exercise. Look at where enterprise AI investment is flowing:
-
-![Anthropic Strategy Map](anthropic_strategy_map.png)
-*Source: CB Insights. Goldman Sachs, Deloitte, KPMG, Allianz — all investing in AI for financial operations.*
-
-Goldman Sachs is not investing in chatbots. They are investing in systems that can **read financial documents, apply business rules, and make compliance decisions at scale**. The architecture I showed here — a fast orchestrator that delegates visual understanding to a specialized model — is exactly the pattern these companies are building toward.
-
-The A16Z data tells the same story from the other direction:
-
-![Customer Support Hiring Plunges](customer_support_hiring.webp)
-*Customer support hiring as a percentage of new hires dropped from 8.3% to 2.88%. Document processing roles are next.*
-
-Customer support was the first wave. **Document processing, invoice review, and compliance auditing are the next wave.** The models are ready. The agentic frameworks are ready. The pattern works.
-
----
-
 ### What This Tells Us
 
 Three things stand out:
 
-**1. Specialized models as agentic tools is the next phase.** We have moved from "one model does everything" to "the right model for the right job, orchestrated by an agent." Nemotron reads documents. Grok reasons about policy. Each model does what it is best at. This is how enterprise AI systems will be built — not monolithic, but composed.
+**1. Specialized models as agentic tools is the next phase.** We have moved from "one model does everything" to "the right model for the right job, orchestrated by an agent." Nemotron reads documents. Grok reasons about policy. Each model does what it is best at. This is how agentic AI systems will be built — not monolithic, but composed.
 
 **2. The @tool decorator is the new API.** In the previous blog, calling Nemotron required building message payloads, managing streaming, handling base64 encoding. In the agentic version, all of that is wrapped behind a `@tool` decorator. The agent calls `analyze_invoice_image(invoice_index=6, query="...")` and gets back text. **The complexity is encapsulated. The interface is clean.**
 
