@@ -78,6 +78,36 @@ The agent correctly identifies policy violations. An invoice containing gaming c
 
 > **The agent does not just read documents. It enforces business rules against visual evidence.**
 
+Here is the actual output from a run. The agent made 3 tool calls — one per invoice — and produced a final summary:
+
+#### Invoice 6 — Smith Ltd — REJECTED
+
+The agent called Nemotron, which extracted gaming consoles from the raw image: Microsoft Xbox One X 1TB ($1,369.50), Sony PlayStation PS Slim ($1,108.80), Nintendo Game Boy Micro ($286.00), Nintendo GameCube ($175.99). Total: **$3,490.29**.
+
+The agent flagged this immediately — every line item is a prohibited entertainment/gaming purchase.
+
+#### Invoice 8 — Gordon, Alvarado and Jones — REJECTED
+
+Nemotron extracted 12 line items with amounts ranging from $1.99 to $85.80. Total: **$127.00**. However, the extraction lacked item descriptions and a clear date.
+
+The agent rejected this for **missing required invoice details** — the policy requires vendor name, date, itemized list, and total amount. Without descriptions on the line items, the invoice fails the completeness check.
+
+#### Invoice 10 — Potts, Reed and Miller — REJECTED
+
+Nemotron extracted a PlayStation 5 Console ($989.99), Sony PlayStation 4 Slim ($330.00), Nintendo Gameboy Pocket ($93.50), NEC PC Engine ($175.99), Sony PlayStation 2 Slim ($396.00), and a Magnavox Odyssey 2 ($170.50). Total: **$2,155.98**.
+
+Again — all gaming consoles. Prohibited under the expense policy.
+
+#### Final Summary
+
+| Invoice | Vendor                      | Total     | Decision | Reason                                                  |
+|---------|-----------------------------|-----------|----------|---------------------------------------------------------|
+| 6       | Smith Ltd                   | $3,490.29 | REJECTED | Prohibited entertainment and gaming purchases           |
+| 8       | Gordon, Alvarado and Jones  | $127.00   | REJECTED | Missing date and lack of descriptive itemization        |
+| 10      | Potts, Reed and Miller      | $2,155.98 | REJECTED | Prohibited entertainment and gaming purchases           |
+
+All three invoices rejected. The agent checked every policy rule against every invoice and gave specific reasons for each rejection.
+
 ---
 
 ### The Code
